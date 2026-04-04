@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	prevBtn.addEventListener('click', ()=> { prev(); restart(); });
 	nextBtn.addEventListener('click', ()=> { next(); restart(); });
 
-	function start() { timer = setInterval(next, 4000); }
+	function start() { timer = setInterval(next, 5000); }
 	function stop() { clearInterval(timer); timer = null; }
 	function restart() { stop(); start(); }
 

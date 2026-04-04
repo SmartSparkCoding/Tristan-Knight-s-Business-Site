@@ -40,26 +40,38 @@ h1 {
 .slides {
 	display: flex;
 	transition: transform 400ms ease;
+	align-items: center;
 }
+
 
 .slide {
 	min-width: 100%;
 	box-sizing: border-box;
-	text-align: center;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	flex-direction: column;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	min-height: min(60vh, 560px);
+	border-radius: 6px;
+	overflow: hidden;
 }
 
-.slide img {
-	width: 100%;
-	height: min(60vh, 560px);
-	object-fit: cover;
-	display: block;
-	border-radius: 6px;
+/* On small screens, reduce slide height */
+@media (max-width: 700px) {
+	.slide { min-height: 40vh; }
 }
 
 .slide figcaption {
-	margin-top: 0.5rem;
+	margin: 1rem 0 0.25rem 0;
 	font-size: 0.95rem;
 	color: #444;
+	text-align: center;
+	background: rgba(255,255,255,0.92);
+	padding: 0.35rem 0.75rem;
+	border-radius: 4px;
 }
 
 .carousel-btn {
@@ -83,21 +95,22 @@ h1 {
 
 .carousel-dots {
 	display:flex;
-	gap:8px;
+	gap:12px;
 	justify-content:center;
-	margin-top:12px;
+	margin-top:14px;
 }
 
 .carousel-dots button {
-	width:10px;
-	height:10px;
+	width:12px;
+	height:12px;
 	border-radius:50%;
 	border:none;
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.18);
 	cursor:pointer;
+	transition: transform 160ms ease, background-color 160ms ease;
 }
 
-.carousel-dots button.active { background: rgba(0,0,0,0.8); }
+.carousel-dots button.active { background: rgba(0,0,0,0.85); transform: scale(1.15); }
 
 /* Navbar */
 .navbar {
