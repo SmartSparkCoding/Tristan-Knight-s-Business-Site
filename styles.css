@@ -431,6 +431,20 @@ p {
 	backdrop-filter: blur(8px);
 }
 
+.site-footer a {
+	color: var(--ink);
+	text-decoration: none;
+	font-weight: 700;
+	border-bottom: 1px solid rgba(23, 23, 23, 0.35);
+	padding-bottom: 1px;
+	transition: color 180ms ease, border-color 180ms ease;
+}
+
+.site-footer a:hover {
+	color: var(--accent);
+	border-color: rgba(182, 139, 83, 0.7);
+}
+
 @keyframes slideDown {
 	from {
 		opacity: 0;
