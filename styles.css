@@ -35,31 +35,51 @@ h1 {
 	max-width: 900px;
 	margin: 0 auto;
 	overflow: hidden;
+	width: 100%;
 }
 
 .slides {
-	display: flex;
-	transition: transform 400ms ease;
+	position: relative;
 }
 
 .slide {
-	min-width: 100%;
-	box-sizing: border-box;
-	text-align: center;
+	position: relative;
+	display: none;
+	margin: 0;
+	width: 100%;
+	animation: fade 0.7s ease;
 }
 
 .slide img {
 	width: 100%;
 	height: min(60vh, 560px);
 	object-fit: cover;
+	object-position: center center;
 	display: block;
 	border-radius: 6px;
 }
 
-.slide figcaption {
-	margin-top: 0.5rem;
-	font-size: 0.95rem;
-	color: #444;
+.numbertext {
+	position: absolute;
+	top: 10px;
+	left: 12px;
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 6px 8px;
+	background: rgba(0, 0, 0, 0.35);
+	border-radius: 4px;
+}
+
+.text {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 10px 12px;
+	text-align: center;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
 }
 
 .carousel-btn {
@@ -83,21 +103,29 @@ h1 {
 
 .carousel-dots {
 	display:flex;
-	gap:8px;
+	gap:12px;
 	justify-content:center;
-	margin-top:12px;
+	margin-top:14px;
 }
 
 .carousel-dots button {
-	width:10px;
-	height:10px;
+	width:14px;
+	height:14px;
 	border-radius:50%;
 	border:none;
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.25);
 	cursor:pointer;
 }
 
-.carousel-dots button.active { background: rgba(0,0,0,0.8); }
+.carousel-dots button.active {
+	background: rgba(0,0,0,0.85);
+	transform: scale(1.1);
+}
+
+@keyframes fade {
+	from { opacity: 0.4; }
+	to { opacity: 1; }
+}
 
 /* Navbar */
 .navbar {
