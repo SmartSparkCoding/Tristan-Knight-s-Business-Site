@@ -7,9 +7,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script>
-        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    </script>
     <title>Tristan Knight Photography</title>
 </head>
 <body>
@@ -54,30 +51,11 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
-
     <section id="contact" class="section">
         <p>Contact me at tristan.knight@example.com or +44 1234 567890</p>
         <button onclick="window.location.href='mailto:tristan.knight@example.com'">Email Me</button>
         <button onclick="window.location.href='tel:+441234567890'">Call Me</button>
     </section>
-
-    <script>
-        // Ensure we start at the top when the page is loaded; try multiple frames to override anchor/restore
-        window.addEventListener('load', function() {
-            window.scrollTo(0, 0);
-            let tries = 0;
-            const ensureTop = () => {
-                if (window.scrollY > 0 && tries < 20) {
-                    window.scrollTo(0, 0);
-                    tries++;
-                    requestAnimationFrame(ensureTop);
-                }
-            };
-            requestAnimationFrame(ensureTop);
-            // As a fallback, try again shortly after
-            setTimeout(() => window.scrollTo(0, 0), 200);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
