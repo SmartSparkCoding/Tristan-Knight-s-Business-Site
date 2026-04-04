@@ -1,29 +1,68 @@
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--ink: #171717;
+	--soft-ink: #3a3a3a;
+	--paper: #f4f2ed;
+	--card: #fff;
+	--line: rgba(23, 23, 23, 0.15);
+	--accent: #b68b53;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Playwrite IT Moderna', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	line-height: 1.6;
-	color: #222;
+	color: var(--ink);
 	margin: 0;
-	padding: 80px 1rem 1rem 1rem;
-	background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 45%, #f8f8f8 100%);
+	padding: 80px 0 0;
+	background:
+		radial-gradient(circle at 85% 5%, rgba(182, 139, 83, 0.14) 0%, rgba(182, 139, 83, 0) 38%),
+		linear-gradient(180deg, #efebe3 0%, var(--paper) 45%, #f7f5f1 100%);
+}
+
+h1,
+h2 {
+	font-weight: 700;
+	letter-spacing: 0.02em;
 }
 
 h1 {
-	text-align: center;
-	margin-top: 0.25rem;
+	font-size: clamp(2rem, 4vw, 3.2rem);
+	margin: 0;
+	text-wrap: balance;
 }
 
-.intro-inner {
-	max-width: 900px;
-	margin: 0 auto;
+h2 {
+	font-size: clamp(1.4rem, 3vw, 2rem);
+	margin: 0;
 }
 
-/* Sections: make each take the full viewport (under the navbar) */
+p {
+	margin: 0;
+	color: var(--soft-ink);
+}
+
+.intro-inner,
+.section-heading,
+.carousel,
+.contact-card {
+	width: min(1100px, calc(100% - 2rem));
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .section {
 	min-height: calc(100vh - 80px);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 2rem 1rem;
+	padding: 3rem 0;
 	opacity: 0;
 	transform: translateY(20px);
 	transition: opacity 520ms ease, transform 520ms ease;
@@ -34,18 +73,66 @@ h1 {
 	transform: translateY(0);
 }
 
-/* add divider line between consecutive sections */
 .section + .section {
-	border-top: 1px solid rgba(0,0,0,0.12);
+	border-top: 1px solid var(--line);
+}
+
+.hero-section {
+	position: relative;
+	background:
+		linear-gradient(120deg, rgba(10, 10, 10, 0.72), rgba(10, 10, 10, 0.35)),
+		url('gallery/photo1.jpg') center/cover no-repeat;
+	color: #fff;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+}
+
+.hero-section p,
+.hero-section .hero-subtitle {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-subtitle {
+	font-size: 1.05rem;
+	margin-top: 0.85rem;
+	margin-bottom: 1rem;
+	font-weight: 500;
+	letter-spacing: 0.03em;
+}
+
+.hero-cta {
+	display: inline-block;
+	margin-top: 1.4rem;
+	padding: 0.7rem 1.1rem;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 0.82rem;
+	letter-spacing: 0.14em;
+	transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.hero-cta:hover {
+	background: rgba(255, 255, 255, 0.14);
+	transform: translateY(-1px);
+}
+
+.section-heading {
+	margin-bottom: 1.1rem;
+}
+
+.section-heading p {
+	margin-top: 0.35rem;
 }
 
 /* Carousel */
 .carousel {
 	position: relative;
-	max-width: 900px;
-	margin: 0 auto;
 	overflow: hidden;
-	width: 100%;
+	border-radius: 10px;
+	box-shadow: 0 25px 48px rgba(0, 0, 0, 0.16);
+	background: #111;
 }
 
 .slides {
@@ -62,11 +149,10 @@ h1 {
 
 .slide img {
 	width: 100%;
-	height: min(60vh, 560px);
+	height: min(64vh, 660px);
 	object-fit: cover;
 	object-position: center center;
 	display: block;
-	border-radius: 6px;
 	transition: transform 5s ease;
 }
 
@@ -91,21 +177,23 @@ h1 {
 	right: 0;
 	bottom: 0;
 	color: #f2f2f2;
-	font-size: 15px;
-	padding: 10px 12px;
+	font-size: 14px;
+	padding: 14px 12px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 	text-align: center;
-	background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0));
 }
 
 .carousel-btn {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.55);
 	color: #fff;
 	border: none;
-	width: 42px;
-	height: 42px;
+	width: 46px;
+	height: 46px;
 	border-radius: 50%;
 	cursor: pointer;
 	display: flex;
@@ -115,7 +203,7 @@ h1 {
 }
 
 .carousel-btn:hover {
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.9);
 	transform: translateY(-50%) scale(1.04);
 }
 
@@ -123,10 +211,10 @@ h1 {
 .carousel-btn.next { right: 12px; }
 
 .carousel-dots {
-	display:flex;
-	gap:12px;
-	justify-content:center;
-	margin-top:14px;
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	margin-top: 16px;
 }
 
 .carousel-dots button {
@@ -156,12 +244,13 @@ h1 {
 	left: 0;
 	right: 0;
 	height: 64px;
-	background: #000;
+	background: rgba(0, 0, 0, 0.84);
+	backdrop-filter: blur(8px);
 	color: #fff;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 1rem;
+	padding: 0 1.25rem;
 	z-index: 1000;
 	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
 	animation: slideDown 480ms ease;
@@ -169,15 +258,20 @@ h1 {
 
 .nav-left {
 	font-weight: 700;
-	font-size: 1.125rem;
+	font-size: 0.95rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 }
 
 .nav-right a {
 	color: #fff;
 	text-decoration: none;
-	margin-left: 1rem;
+	margin-left: 1.1rem;
 	font-weight: 500;
 	position: relative;
+	font-size: 0.82rem;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
 }
 
 .nav-right a:hover {
@@ -206,16 +300,29 @@ h1 {
 	border: 1px solid #111;
 	background: #111;
 	color: #fff;
-	padding: 0.65rem 1rem;
-	margin-right: 0.5rem;
+	padding: 0.75rem 1.15rem;
+	margin-right: 0.55rem;
 	cursor: pointer;
 	transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+	letter-spacing: 0.05em;
 }
 
 #contact button:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 	background: #222;
+}
+
+.contact-card {
+	background: var(--card);
+	border: 1px solid var(--line);
+	box-shadow: 0 18px 40px rgba(16, 16, 16, 0.09);
+	padding: 1.4rem;
+	border-radius: 10px;
+}
+
+.contact-card p {
+	margin-bottom: 1rem;
 }
 
 @keyframes slideDown {
@@ -235,6 +342,38 @@ h1 {
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
+	}
+}
+
+@media (max-width: 820px) {
+	body {
+		padding-top: 72px;
+	}
+
+	.navbar {
+		height: 58px;
+		padding: 0 0.8rem;
+	}
+
+	.nav-left {
+		font-size: 0.72rem;
+	}
+
+	.nav-right a {
+		margin-left: 0.6rem;
+		font-size: 0.7rem;
+	}
+
+	.slide img {
+		height: 48vh;
+	}
+
+	.numbertext {
+		font-size: 11px;
+	}
+
+	.text {
+		font-size: 12px;
 	}
 }
 

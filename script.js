@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
 		dot.addEventListener('click', () => {
 			currentSlide(i + 1);
-			restart();
+			restartAuto();
 		});
 		dotsWrap.appendChild(dot);
 	});
