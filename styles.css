@@ -443,23 +443,6 @@ p {
 	transform-origin: left;
 }
 
-#contact button {
-	border: 1px solid #111;
-	background: #111;
-	color: #fff;
-	padding: 0.75rem 1.15rem;
-	margin-right: 0.55rem;
-	cursor: pointer;
-	transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-	letter-spacing: 0.05em;
-}
-
-#contact button:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-	background: #222;
-}
-
 .contact-card {
 	background: var(--card);
 	border: 1px solid var(--line);
@@ -468,8 +451,89 @@ p {
 	border-radius: 10px;
 }
 
-.contact-card p {
-	margin-bottom: 1rem;
+.contact-enhanced {
+	display: grid;
+	grid-template-columns: 1.3fr 1fr;
+	gap: 1.2rem 2rem;
+	align-items: start;
+	padding: 1.8rem;
+	background:
+		radial-gradient(circle at 88% 8%, rgba(182, 139, 83, 0.14) 0%, rgba(182, 139, 83, 0) 46%),
+		linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 247, 242, 0.97) 100%);
+}
+
+.contact-copy h3 {
+	margin: 0 0 0.65rem;
+	font-size: clamp(1.25rem, 2vw, 1.65rem);
+	line-height: 1.25;
+}
+
+.contact-copy p {
+	margin: 0;
+	color: #3a3a3a;
+}
+
+.contact-points {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	gap: 0.6rem;
+	font-size: 0.95rem;
+	color: #2f2f2f;
+}
+
+.contact-points li {
+	padding: 0.62rem 0.7rem;
+	border: 1px solid rgba(23, 23, 23, 0.11);
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.72);
+	backdrop-filter: blur(5px);
+}
+
+.contact-actions {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem;
+}
+
+.contact-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.74rem 1.15rem;
+	border-radius: 999px;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.contact-btn-primary {
+	border: 1px solid #111;
+	background: #111;
+	color: #fff;
+}
+
+.contact-btn-primary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+	background: #252525;
+}
+
+.contact-btn-secondary {
+	border: 1px solid rgba(23, 23, 23, 0.23);
+	background: rgba(255, 255, 255, 0.76);
+	color: #1f1f1f;
+}
+
+.contact-btn-secondary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+	background: rgba(255, 255, 255, 0.98);
 }
 
 .site-footer {
@@ -567,6 +631,20 @@ p {
 
 	.pricing-card.platinum:hover {
 		transform: translateY(-4px);
+	}
+
+	.contact-enhanced {
+		grid-template-columns: 1fr;
+		padding: 1.35rem;
+		gap: 1rem;
+	}
+
+	.contact-actions {
+		flex-direction: column;
+	}
+
+	.contact-btn {
+		width: 100%;
 	}
 }
 
