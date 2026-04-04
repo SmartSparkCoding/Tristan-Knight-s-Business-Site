@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    </script>
+    <title>Tristan Knight Photography</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">Tristan Knight Photography</div>
+        <div class="nav-right">
+            <a href="#intro">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <section id="intro" class="section">
+        <div class="intro-inner">
+            <h1>Tristan Knight Photography</h1>
+            <p>Welcome to my Photography Portfolio! I am a passionate photographer specializing in [INSERT HERE]. My work captures the [INSERT HERE]. Feel free to explore my gallery and contact me for any inquiries or collaborations. Thank you for visiting!</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2>Gallery</h2>
+        <div class="carousel" id="carousel">
+            <div class="slides">
+                <figure class="slide">
+                    <img src="gallery/photo1.jpg" alt="Photo 1">
+                    <figcaption>Photo 1 — Behind the Lens</figcaption>
+                </figure>
+                <figure class="slide">
+                    <img src="gallery/photo2.jpg" alt="Photo 2">
+                    <figcaption>Photo 2 — City Lights</figcaption>
+                </figure>
+                <figure class="slide">
+                    <img src="gallery/photo3.jpg" alt="Photo 3">
+                    <figcaption>Photo 3 — Coastal Sunrise</figcaption>
+                </figure>
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous">‹</button>
+            <button class="carousel-btn next" aria-label="Next">›</button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <p>Contact me at tristan.knight@example.com or +44 1234 567890</p>
+        <button onclick="window.location.href='mailto:tristan.knight@example.com'">Email Me</button>
+        <button onclick="window.location.href='tel:+441234567890'">Call Me</button>
+    </section>
+
+    <script>
+        // Ensure we start at the top when the page is loaded; try multiple frames to override anchor/restore
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            let tries = 0;
+            const ensureTop = () => {
+                if (window.scrollY > 0 && tries < 20) {
+                    window.scrollTo(0, 0);
+                    tries++;
+                    requestAnimationFrame(ensureTop);
+                }
+            };
+            requestAnimationFrame(ensureTop);
+            // As a fallback, try again shortly after
+            setTimeout(() => window.scrollTo(0, 0), 200);
+        });
+    </script>
+</body>
+</html>
