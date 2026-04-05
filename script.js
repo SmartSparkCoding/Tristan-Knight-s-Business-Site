@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		showSlides(slideIndex);
 	}
 
-	// Build dots once, matching number of slides
 	slides.forEach((_, i) => {
 		const dot = document.createElement('button');
 		dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
