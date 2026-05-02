@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 Tristan Knight's Business Website
 
 Created by Jacob Navaratne for Tristan Knight's photography business. This is a portfolio site showcasing professional photography work, built to feel clean and cinematic.
+=======
+## Tristan Knight's Business Website
+
+Created by Jacob Navaratne for Tristan Knight's photography business which has a portfolio showcasing his photography work.
+>>>>>>> e8eeb69560a316cf19e722137914152d9d3f8f9f
 
 The site features a minimalist design that keeps the focus on Tristan's photography. There's a responsive image carousel in the gallery section so potential clients can scroll through recent work, a general info section that explains Tristan's approach and expertise, and a pricing area with some interactive animations and color changes to make it feel a bit more engaging.
 
